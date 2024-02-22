@@ -1,0 +1,33 @@
+# Importing relevant python packages
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+# Creating a potential function 
+def potential(x):   
+    
+    """
+    Calculating the potential energy matrix for a quantum harmonic oscillator using a discrete approximation of position
+
+    Parameters:
+    -----------
+    - x: 1D numpy array representing the positions
+
+    Returns:
+    --------
+    - v: N by N numpy arrray, the potential energy matrix
+    """
+    
+    # A local variable equal to the number of values in the position array 
+    N = len(x) 
+    
+    # Creating an N by N array for the values of potential
+    v = np.zeros((N,N)) 
+    
+    for i in range(N):
+        
+        # Adding each value of potential in the diagonal of array 
+        v[i,i] = x[i]**2 
+        
+    return v
+
+# NOTE - I have outputted an N by N array as the size of arrays will help in the hamiltonian function
